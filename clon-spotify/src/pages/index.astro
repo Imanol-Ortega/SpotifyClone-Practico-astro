@@ -1,0 +1,24 @@
+---
+import PlaylistItemCard from "../components/PlaylistItemCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { playlists } from "../lib/data";
+import Greeting from "../components/Greeting.svelte";
+---
+
+<Layout>
+    <div
+        id="playlist-container"
+        class="relative flex flex-col h-full bg-green-500 overflow-x-hidden bg-gradient-to-t from-50% from-zinc-900 via-zinc-900/80"
+    >
+        <div class="relative z-10 px-6 pt-10">
+            <Greeting />
+            <div class="flex flex-wrap mt-6 gap-4">
+                {
+                    playlists.map((playlist) => (
+                        <PlaylistItemCard playlist={playlist} />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</Layout>
